@@ -36,7 +36,7 @@ const avatarBackgroundColor = Color.fromRGBO(91, 91, 91, 91);
 //app light theme
 class AppTheme {
   final ThemeData lightTheme = ThemeData.light().copyWith(
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: Color(0xFFF6F6F6),
 
 //Floating action buttom
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
