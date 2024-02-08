@@ -20,7 +20,9 @@ class LoginScreen extends StatelessWidget {
           child: Stack(
             children: [
               const CustomAppBar(
-                child: Center(child: Text('JobTree')),
+                child: Center(
+                  child: Text('JobTree'),
+                ),
               ),
               Padding(
                 padding: EdgeInsets.fromLTRB(20, 228, 20, 0),
