@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:jobapp/provider/bottomState/bottomState.dart';
+import 'package:jobapp/provider/features/apply_job.dart';
+import 'package:jobapp/provider/features/getJobs.dart';
 import 'package:jobapp/provider/login/login_state.dart';
 import 'package:jobapp/provider/register/registerState.dart';
 import 'package:jobapp/provider/splash/splash_state.dart';
-import 'package:jobapp/screens/home.dart';
+import 'package:jobapp/screens/common/bottom_navigation/bottom_navigation.dart';
+import 'package:jobapp/screens/homeScreens/features/apply_screen.dart';
+import 'package:jobapp/screens/homeScreens/home.dart';
 import 'package:jobapp/screens/users/login.dart';
 import 'package:jobapp/screens/users/register.dart';
 import 'package:jobapp/screens/splash.dart';
@@ -38,6 +43,21 @@ class MyApp extends StatelessWidget {
               child: RegisterScreen(),
             ),
         "/home": (context) => const HomeScreen(),
+        '/bottomNav': (context) => MultiProvider(
+              providers: [
+                ChangeNotifierProvider(
+                  create: (_) => BottomState(),
+                ),
+                ChangeNotifierProvider(
+                  create: (_) => JobState(),
+                )
+              ],
+              child: BottomNavigation(),
+            ),
+        '/applyScreen': (context) => ChangeNotifierProvider(
+              create: (_) => ApplyState(context),
+              child: ApplyScreen(),
+            )
       },
     );
   }

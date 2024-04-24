@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jobapp/main.dart';
 
 class SplashState extends ChangeNotifier {
   SplashState() {

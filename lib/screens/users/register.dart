@@ -65,12 +65,6 @@ class RegisterScreen extends StatelessWidget {
                         onSaved: (String? value) {
                           value = registerState.email;
                         },
-                        // validator: (value) {
-                        //   if (value!.isEmpty) {
-                        //     return 'Please enter a password';
-                        //   }
-                        //   return null;
-                        // },
                       ),
                       lHeightSpan,
                       MaterialButton(

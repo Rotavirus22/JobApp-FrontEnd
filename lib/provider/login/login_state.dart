@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:jobapp/common/app_constant.dart';
 import 'package:jobapp/main.dart';
 import 'package:jobapp/services/dio_interceptor.dart';
 import 'package:jobapp/services/local_storage.dart';
@@ -31,7 +30,7 @@ class LoginState extends ChangeNotifier {
       localStorage.write('token', response.data["accessToken"]);
       var accessTkn = localStorage.read('token');
       print(accessTkn);
-      navigagorKey.currentState!.pushReplacementNamed('/home');
+      navigagorKey.currentState!.pushReplacementNamed('/bottomNav');
     } on DioException catch (e) {
       print(e);
     }
