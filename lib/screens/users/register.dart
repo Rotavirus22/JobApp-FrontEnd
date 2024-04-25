@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:jobapp/common/constants/customAppBar.dart';
+import 'package:jobapp/common/constants/k_button.dart';
 import 'package:jobapp/common/constants/text_field.dart';
 import 'package:jobapp/common/ui_helpers.dart';
+import 'package:jobapp/main.dart';
 import 'package:jobapp/provider/register/registerState.dart';
 import 'package:jobapp/themes/app_themes.dart';
 import 'package:provider/provider.dart';
@@ -25,10 +27,10 @@ class RegisterScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.fromLTRB(20, 228, 20, 0),
                 child: Container(
-                  height: 325,
                   child: Column(
                     children: [
                       kTextFormFIeld(
+                        obscureText: false,
                         hintText: 'Full Name',
                         autoValidateMode: AutovalidateMode.onUserInteraction,
                         onChanged: registerState.onFullNameChanged,
@@ -44,6 +46,7 @@ class RegisterScreen extends StatelessWidget {
                       ),
                       mHeightSpan,
                       kTextFormFIeld(
+                        obscureText: false,
                         hintText: 'Email',
                         autoValidateMode: AutovalidateMode.onUserInteraction,
                         onChanged: registerState.onEmailChanged,
@@ -67,15 +70,25 @@ class RegisterScreen extends StatelessWidget {
                         },
                       ),
                       lHeightSpan,
-                      MaterialButton(
-                        height: 58,
-                        color: secondaryColor,
+                      KButton(
                         child: registerState.isLoading
                             ? CircularProgressIndicator()
                             : Text('Register'),
                         onPressed: () {
                           registerState.register();
                         },
+                      ),
+                      elHeightSpan,
+                      Row(
+                        children: [
+                          Text('Already have an Account'),
+                          TextButton(
+                            onPressed: () {
+                              navigagorKey.currentState!.pushNamed('/login');
+                            },
+                            child: Text('Login'),
+                          ),
+                        ],
                       ),
                     ],
                   ),

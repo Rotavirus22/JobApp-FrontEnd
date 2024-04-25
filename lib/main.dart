@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:jobapp/provider/bottomState/bottomState.dart';
 import 'package:jobapp/provider/features/apply_job.dart';
 import 'package:jobapp/provider/features/getJobs.dart';
+import 'package:jobapp/provider/forgotPassword/forgotPassword.dart';
+import 'package:jobapp/provider/forgotPassword/resetPassword.dart';
 import 'package:jobapp/provider/login/login_state.dart';
 import 'package:jobapp/provider/register/registerState.dart';
 import 'package:jobapp/provider/splash/splash_state.dart';
 import 'package:jobapp/screens/common/bottom_navigation/bottom_navigation.dart';
 import 'package:jobapp/screens/homeScreens/features/apply_screen.dart';
 import 'package:jobapp/screens/homeScreens/home.dart';
+import 'package:jobapp/screens/users/forgot_password.dart';
 import 'package:jobapp/screens/users/login.dart';
 import 'package:jobapp/screens/users/register.dart';
 import 'package:jobapp/screens/splash.dart';
+import 'package:jobapp/screens/users/reset_password.dart';
 import 'package:jobapp/themes/app_themes.dart';
 import 'package:provider/provider.dart';
 
@@ -57,6 +61,14 @@ class MyApp extends StatelessWidget {
         '/applyScreen': (context) => ChangeNotifierProvider(
               create: (_) => ApplyState(context),
               child: ApplyScreen(),
+            ),
+        '/forgotPassword': (context) => ChangeNotifierProvider(
+              create: (_) => ForgotPasswordState(),
+              child: ForgotPassword(),
+            ),
+        '/resetPassword': (context) => ChangeNotifierProvider(
+              create: (_) => ResetPasswordState(context),
+              child: ResetPassword(),
             )
       },
     );

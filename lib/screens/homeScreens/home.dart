@@ -290,8 +290,7 @@ class HomeScreen extends StatelessWidget {
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    borderRadius: BorderRadius.circular(
-                                        12), // Adjust the radius as needed
+                                    borderRadius: BorderRadius.circular(12),
                                   ),
                                   height: 93,
                                   width: 370,

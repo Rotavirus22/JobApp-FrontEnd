@@ -3,6 +3,7 @@ import 'package:jobapp/common/constants/customAppBar.dart';
 import 'package:jobapp/common/constants/k_button.dart';
 import 'package:jobapp/common/constants/text_field.dart';
 import 'package:jobapp/common/ui_helpers.dart';
+import 'package:jobapp/main.dart';
 import 'package:jobapp/provider/login/login_state.dart';
 import 'package:provider/provider.dart';
 
@@ -14,9 +15,9 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final loginState = Provider.of<LoginState>(context);
     return Scaffold(
-      body: Form(
-        key: _formKey,
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Form(
+          key: _formKey,
           child: Stack(
             children: [
               const CustomAppBar(
@@ -27,7 +28,6 @@ class LoginScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.fromLTRB(20, 228, 20, 0),
                 child: Container(
-                  height: 325,
                   child: Column(
                     children: [
                       kTextFormFIeld(
@@ -51,6 +51,34 @@ class LoginScreen extends StatelessWidget {
                         child: loginState.isLoading
                             ? CircularProgressIndicator()
                             : Text('Login'),
+                      ),
+                      lHeightSpan,
+                      Row(
+                        children: [
+                          elWidthSpan,
+                          elWidthSpan,
+                          elWidthSpan,
+                          elWidthSpan,
+                          TextButton(
+                            onPressed: () {
+                              navigagorKey.currentState!
+                                  .pushNamed('/forgotPassword');
+                            },
+                            child: Text('Forgot Password?'),
+                          ),
+                        ],
+                      ),
+                      elHeightSpan,
+                      Row(
+                        children: [
+                          Text('Don\'t have an Account?'),
+                          TextButton(
+                            onPressed: () {
+                              navigagorKey.currentState!.pushNamed('/register');
+                            },
+                            child: Text('Register'),
+                          ),
+                        ],
                       ),
                     ],
                   ),
