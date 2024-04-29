@@ -24,14 +24,14 @@ class JobState extends ChangeNotifier {
   String? userId;
 
   JobModel? jobModel;
-  DashBoardModel? dashBoardModel;
+  DashboardModel? dashBoardModel;
 
   getDashBoardInfo() async {
     isLoading = true;
     notifyListeners();
     try {
       var response = await dio.get('/users/dashboard');
-      dashBoardModel = DashBoardModel.fromJson(response.data);
+      dashBoardModel = DashboardModel.fromJson(response.data);
       userId = dashBoardModel!.data!.sId;
       print(userId);
     } on DioException catch (e) {

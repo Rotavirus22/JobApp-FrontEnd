@@ -3,8 +3,11 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:jobapp/common/constants/flutterToast.dart';
 import 'package:jobapp/main.dart';
 import 'package:jobapp/services/dio_interceptor.dart';
+import 'package:jobapp/themes/app_themes.dart';
 
 class ApplyState extends ChangeNotifier {
   ApplyState(context) {
@@ -61,6 +64,12 @@ class ApplyState extends ChangeNotifier {
       print('No PDF file selected.');
       isLoading = false;
       notifyListeners();
+
+      Utils().toastMessage(
+          message: "No PDF Selected",
+          bgColor: errorColor,
+          gravity: ToastGravity.TOP);
+
       return;
     }
 
@@ -82,9 +91,19 @@ class ApplyState extends ChangeNotifier {
           // You can use this progress value to update UI elements, like a progress bar
         },
       );
+      Utils().toastMessage(
+          message: response.data["message"], bgColor: sucessColor);
       navigagorKey.currentState!.pushReplacementNamed('/home');
     } on DioException catch (e) {
       print(e);
+      var errorMessage =
+          e.response?.data != null && e.response?.data['message'] != null
+              ? e.response?.data['message']
+              : 'Unknown error occurred';
+      Utils().toastMessage(
+          message: errorMessage,
+          bgColor: errorColor,
+          gravity: ToastGravity.TOP);
     }
     isLoading = false;
     notifyListeners();

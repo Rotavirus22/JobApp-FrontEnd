@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobapp/common/constants/customAppBar.dart';
 import 'package:jobapp/common/ui_helpers.dart';
-import 'package:jobapp/provider/features/getJobs.dart';
+import 'package:jobapp/provider/features/profile.dart';
 import 'package:provider/provider.dart';
 
 class Profile extends StatelessWidget {
@@ -9,7 +9,7 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dashBoardstate = Provider.of<JobState>(context);
+    final dashBoardstate = Provider.of<ProfileState>(context);
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -22,7 +22,7 @@ class Profile extends StatelessWidget {
                 elHeightSpan,
                 elHeightSpan,
                 Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.fromLTRB(20, 10, 0, 0),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -31,6 +31,17 @@ class Profile extends StatelessWidget {
                     ),
                     height: 200,
                     width: 370,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(dashBoardstate.dashBoardModel?.data?.fullName ??
+                            'N/A'),
+                        sHeightSpan,
+                        Text(
+                            dashBoardstate.dashBoardModel?.data?.workPosition ??
+                                'N/A'),
+                      ],
+                    ),
                   ),
                 ),
               ],

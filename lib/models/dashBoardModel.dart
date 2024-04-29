@@ -1,10 +1,10 @@
-class DashBoardModel {
+class DashboardModel {
   String? status;
   Data? data;
 
-  DashBoardModel({this.status, this.data});
+  DashboardModel({this.status, this.data});
 
-  DashBoardModel.fromJson(Map<String, dynamic> json) {
+  DashboardModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     data = json['data'] != null ? new Data.fromJson(json['data']) : null;
   }
@@ -20,28 +20,45 @@ class DashBoardModel {
 }
 
 class Data {
-  String? subscribed;
   String? sId;
   String? fullName;
   String? email;
+  String? workPosition;
+  bool? isSubscribed;
+  String? createdAt;
+  String? updatedAt;
   int? iV;
 
-  Data({this.subscribed, this.sId, this.fullName, this.email, this.iV});
+  Data(
+      {this.sId,
+      this.fullName,
+      this.email,
+      this.workPosition,
+      this.isSubscribed,
+      this.createdAt,
+      this.updatedAt,
+      this.iV});
 
   Data.fromJson(Map<String, dynamic> json) {
-    subscribed = json['subscribed'];
     sId = json['_id'];
     fullName = json['fullName'];
     email = json['email'];
+    workPosition = json['workPosition'];
+    isSubscribed = json['isSubscribed'];
+    createdAt = json['createdAt'];
+    updatedAt = json['updatedAt'];
     iV = json['__v'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['subscribed'] = this.subscribed;
     data['_id'] = this.sId;
     data['fullName'] = this.fullName;
     data['email'] = this.email;
+    data['workPosition'] = this.workPosition;
+    data['isSubscribed'] = this.isSubscribed;
+    data['createdAt'] = this.createdAt;
+    data['updatedAt'] = this.updatedAt;
     data['__v'] = this.iV;
     return data;
   }

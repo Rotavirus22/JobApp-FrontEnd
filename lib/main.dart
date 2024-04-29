@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jobapp/provider/bottomState/bottomState.dart';
 import 'package:jobapp/provider/features/apply_job.dart';
 import 'package:jobapp/provider/features/getJobs.dart';
+import 'package:jobapp/provider/features/profile.dart';
 import 'package:jobapp/provider/forgotPassword/forgotPassword.dart';
 import 'package:jobapp/provider/forgotPassword/resetPassword.dart';
 import 'package:jobapp/provider/login/login_state.dart';
@@ -10,6 +11,7 @@ import 'package:jobapp/provider/splash/splash_state.dart';
 import 'package:jobapp/screens/common/bottom_navigation/bottom_navigation.dart';
 import 'package:jobapp/screens/homeScreens/features/apply_screen.dart';
 import 'package:jobapp/screens/homeScreens/home.dart';
+import 'package:jobapp/screens/homeScreens/profile.dart';
 import 'package:jobapp/screens/users/forgot_password.dart';
 import 'package:jobapp/screens/users/login.dart';
 import 'package:jobapp/screens/users/register.dart';
@@ -46,7 +48,10 @@ class MyApp extends StatelessWidget {
               create: (_) => RegisterState(),
               child: RegisterScreen(),
             ),
-        "/home": (context) => const HomeScreen(),
+        "/home": (context) => ChangeNotifierProvider(
+              create: (_) => JobState(),
+              child: HomeScreen(),
+            ),
         '/bottomNav': (context) => MultiProvider(
               providers: [
                 ChangeNotifierProvider(
@@ -54,7 +59,10 @@ class MyApp extends StatelessWidget {
                 ),
                 ChangeNotifierProvider(
                   create: (_) => JobState(),
-                )
+                ),
+                ChangeNotifierProvider(
+                  create: (_) => ProfileState(),
+                ),
               ],
               child: BottomNavigation(),
             ),
@@ -69,6 +77,10 @@ class MyApp extends StatelessWidget {
         '/resetPassword': (context) => ChangeNotifierProvider(
               create: (_) => ResetPasswordState(context),
               child: ResetPassword(),
+            ),
+        '/profile': (context) => ChangeNotifierProvider(
+              create: (_) => ProfileState(),
+              child: Profile(),
             )
       },
     );

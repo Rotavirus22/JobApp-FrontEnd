@@ -5,7 +5,6 @@ import 'package:jobapp/common/constants/text_field.dart';
 import 'package:jobapp/common/ui_helpers.dart';
 import 'package:jobapp/main.dart';
 import 'package:jobapp/provider/register/registerState.dart';
-import 'package:jobapp/themes/app_themes.dart';
 import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -47,6 +46,22 @@ class RegisterScreen extends StatelessWidget {
                       mHeightSpan,
                       kTextFormFIeld(
                         obscureText: false,
+                        hintText: 'Work Position',
+                        autoValidateMode: AutovalidateMode.onUserInteraction,
+                        onChanged: registerState.onWorkPositionChanged,
+                        onSaved: (String? value) {
+                          value = registerState.position;
+                        },
+                        // validator: (value) {
+                        //   if (value!.isEmpty) {
+                        //     return  'Please enter an email';
+                        //   }
+                        //   return null;
+                        // },
+                      ),
+                      mHeightSpan,
+                      kTextFormFIeld(
+                        obscureText: false,
                         hintText: 'Email',
                         autoValidateMode: AutovalidateMode.onUserInteraction,
                         onChanged: registerState.onEmailChanged,
@@ -65,6 +80,15 @@ class RegisterScreen extends StatelessWidget {
                         hintText: 'Password',
                         autoValidateMode: AutovalidateMode.onUserInteraction,
                         onChanged: registerState.onPasswordChanged,
+                        onSaved: (String? value) {
+                          value = registerState.email;
+                        },
+                      ),
+                      mHeightSpan,
+                      kTextFormFIeld(
+                        hintText: 'Confirm Password',
+                        autoValidateMode: AutovalidateMode.onUserInteraction,
+                        onChanged: registerState.onConfirmPasswordChanged,
                         onSaved: (String? value) {
                           value = registerState.email;
                         },
