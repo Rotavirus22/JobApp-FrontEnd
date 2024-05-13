@@ -13,7 +13,9 @@ class ApplyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final applyState = Provider.of<ApplyState>(context);
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: appPrimColor,
+      ),
       body: Form(
         child: Padding(
           padding: const EdgeInsets.all(10.0),

@@ -31,7 +31,7 @@ class LoginState extends ChangeNotifier {
     try {
       var response = await dio.post("/users/login", data: data);
       Utils().toastMessage(
-          message: response.data["message"], bgColor: Colors.green);
+          message: response.data["message"], bgColor: sucessColor);
       localStorage.write('token', response.data["accessToken"]);
       var accessTkn = localStorage.read('token');
       print(accessTkn);

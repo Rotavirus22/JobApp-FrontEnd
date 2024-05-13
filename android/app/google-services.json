@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "246564388939",
+    "project_id": "jobapp-chat",
+    "storage_bucket": "jobapp-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246564388939:android:afa4616c2172fa2f1e4dce",
+        "android_client_info": {
+          "package_name": "com.example.jobapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHOM2flSbqDuLLiww0U8OHmy3u45R7b3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

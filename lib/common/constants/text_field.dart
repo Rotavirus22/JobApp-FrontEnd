@@ -101,20 +101,20 @@ class _kTextFormFIeldState extends State<kTextFormFIeld> {
               const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
           isDense: true,
           focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
+            borderSide: BorderSide(color: Colors.black54),
             borderRadius: BorderRadius.all(
               Radius.circular(12),
             ),
           ),
           border: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
+            borderSide: BorderSide(color: Colors.black54),
             borderRadius: BorderRadius.all(
               Radius.circular(12),
             ),
           ),
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(
-                color: Colors.white), // Set the border color to white
+                color: Colors.black54), // Set the border color to white
             borderRadius: BorderRadius.all(
               Radius.circular(12),
             ),

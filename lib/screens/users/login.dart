@@ -59,12 +59,14 @@ class LoginScreen extends StatelessWidget {
                           elWidthSpan,
                           elWidthSpan,
                           elWidthSpan,
-                          TextButton(
-                            onPressed: () {
-                              navigagorKey.currentState!
-                                  .pushNamed('/forgotPassword');
-                            },
-                            child: Text('Forgot Password?'),
+                          Expanded(
+                            child: TextButton(
+                              onPressed: () {
+                                navigagorKey.currentState!
+                                    .pushNamed('/forgotPassword');
+                              },
+                              child: Text('Forgot Password?'),
+                            ),
                           ),
                         ],
                       ),

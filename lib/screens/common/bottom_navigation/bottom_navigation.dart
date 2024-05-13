@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobapp/provider/bottomState/bottomState.dart';
 import 'package:jobapp/screens/homeScreens/home.dart';
-import 'package:jobapp/screens/homeScreens/profile.dart';
-import 'package:jobapp/screens/homeScreens/subscription.dart';
+import 'package:jobapp/screens/homeScreens/more.dart';
 import 'package:jobapp/themes/app_themes.dart';
 import 'package:provider/provider.dart';
 
@@ -14,8 +13,7 @@ class BottomNavigation extends StatelessWidget {
     final bottomState = Provider.of<BottomState>(context);
     List<Widget> pages = [
       HomeScreen(),
-      Subscription(),
-      Profile(),
+      MoreScreen(),
     ];
     return Scaffold(
       body: pages[bottomState.currentValue],
@@ -26,8 +24,8 @@ class BottomNavigation extends StatelessWidget {
           type: BottomNavigationBarType.fixed,
           iconSize: 26.0,
           currentIndex: bottomState.currentValue,
-          backgroundColor: Colors.white,
-          selectedItemColor: appPrimaryColor,
+          backgroundColor: Color(0xFF23458C),
+          selectedItemColor: Colors.white,
           unselectedIconTheme: IconThemeData(color: Colors.black),
           unselectedLabelStyle: const TextStyle(color: Colors.black),
           items: [
@@ -44,19 +42,10 @@ class BottomNavigation extends StatelessWidget {
               icon: SizedBox(
                 width: 50,
                 child: Icon(
-                  Icons.monetization_on_outlined,
+                  Icons.chat_bubble_outline,
                 ),
               ),
-              label: 'Subscription',
-            ),
-            BottomNavigationBarItem(
-              icon: SizedBox(
-                width: 50,
-                child: Icon(
-                  Icons.person_outline_outlined,
-                ),
-              ),
-              label: 'Profile',
+              label: 'Chat',
             ),
           ],
         ),

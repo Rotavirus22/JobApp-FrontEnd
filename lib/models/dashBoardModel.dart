@@ -22,6 +22,7 @@ class DashboardModel {
 class Data {
   String? sId;
   String? fullName;
+  String? profilePicture;
   String? email;
   String? workPosition;
   bool? isSubscribed;
@@ -32,6 +33,7 @@ class Data {
   Data(
       {this.sId,
       this.fullName,
+      this.profilePicture,
       this.email,
       this.workPosition,
       this.isSubscribed,
@@ -42,6 +44,7 @@ class Data {
   Data.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     fullName = json['fullName'];
+    profilePicture = json['profile_picture'];
     email = json['email'];
     workPosition = json['workPosition'];
     isSubscribed = json['isSubscribed'];
@@ -54,6 +57,7 @@ class Data {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['_id'] = this.sId;
     data['fullName'] = this.fullName;
+    data['profile_picture'] = this.profilePicture;
     data['email'] = this.email;
     data['workPosition'] = this.workPosition;
     data['isSubscribed'] = this.isSubscribed;

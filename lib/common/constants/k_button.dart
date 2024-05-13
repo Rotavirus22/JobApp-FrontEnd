@@ -20,7 +20,7 @@ class KButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
           minimumSize: Size(double.infinity, 50),
           foregroundColor: Colors.white,
-          backgroundColor: secondaryColor),
+          backgroundColor: appPrimColor),
     );
   }
 }

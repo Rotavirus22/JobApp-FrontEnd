@@ -22,6 +22,7 @@ class JobState extends ChangeNotifier {
   bool isLoading = false;
 
   String? userId;
+  String? profilePicture;
 
   JobModel? jobModel;
   DashboardModel? dashBoardModel;
@@ -33,6 +34,8 @@ class JobState extends ChangeNotifier {
       var response = await dio.get('/users/dashboard');
       dashBoardModel = DashboardModel.fromJson(response.data);
       userId = dashBoardModel!.data!.sId;
+      profilePicture = dashBoardModel!.data!.profilePicture;
+      print(profilePicture);
       print(userId);
     } on DioException catch (e) {
       print(e);

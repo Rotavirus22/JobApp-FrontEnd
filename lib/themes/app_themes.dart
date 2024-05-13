@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const mainFontFamily = 'Poppins';
 const appPrimaryColor = Color(0xFF51FFAB);
+const appPrimColor = Color(0xFF23458C);
 const secondaryColor = Color(0xFFFFE70B);
 
 const textFieldColor = Color(0xFFA4C2EB);
@@ -36,7 +37,7 @@ const avatarBackgroundColor = Color.fromRGBO(91, 91, 91, 91);
 //app light theme
 class AppTheme {
   final ThemeData lightTheme = ThemeData.light().copyWith(
-    scaffoldBackgroundColor: Color(0xFFF6F6F6),
+    scaffoldBackgroundColor: Colors.white,
 
 //Floating action buttom
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
@@ -44,8 +45,12 @@ class AppTheme {
     ),
     //for time
     timePickerTheme: const TimePickerThemeData(
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(9)))),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(9),
+        ),
+      ),
+    ),
     //for date
     dialogTheme: const DialogTheme(
         shape: RoundedRectangleBorder(

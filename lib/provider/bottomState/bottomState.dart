@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_options.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:jobapp/services/dio_interceptor.dart';
@@ -9,6 +10,8 @@ class BottomState extends ChangeNotifier {
   int currentValue = 0;
   bool isLoading = false;
 
+  int current = 0;
+
   onPageChanged(value) {
     currentValue = value;
     notifyListeners();
@@ -19,5 +22,8 @@ class BottomState extends ChangeNotifier {
     notifyListeners();
   }
 
-  
+  onCarChanged(int index, CarouselPageChangedReason reason) {
+    current = index;
+    notifyListeners();
+  }
 }
